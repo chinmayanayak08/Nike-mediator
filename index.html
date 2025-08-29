@@ -126,13 +126,13 @@
       const errormessage = document.getElementById("error-message");
 
 
-      window.location.href = "./card/index.html";
-        // if (useridInput === validuserid && passwordInput === validpassword) {
-        //   errormessage.classList.remove("show");
-        //   window.location.href = "./card/index.html";
-        // } else {
-        //   errormessage.classList.add("show");
-        // }
+      
+        if (useridInput  && passwordInput ) {
+          errormessage.classList.remove("show");
+          window.location.href = "./card/index.html";
+        } else {
+          errormessage.classList.add("show");
+        }
     }
 
     function togglePassword() {
