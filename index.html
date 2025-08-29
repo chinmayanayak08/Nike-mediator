@@ -125,12 +125,14 @@
       const passwordInput = document.getElementById("password").value;
       const errormessage = document.getElementById("error-message");
 
-      if (useridInput === validuserid && passwordInput === validpassword) {
-        errormessage.classList.remove("show");
-        window.location.href = "./card/index.html";
-      } else {
-        errormessage.classList.add("show");
-      }
+
+      window.location.href = "./card/index.html";
+      // if (useridInput === validuserid && passwordInput === validpassword) {
+      //   errormessage.classList.remove("show");
+      //   window.location.href = "./card/index.html";
+      // } else {
+      //   errormessage.classList.add("show");
+      // }
     }
 
     function togglePassword() {
