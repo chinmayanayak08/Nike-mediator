@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login Page</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #a1c4fd, #c2e9fb); /* Soft blue gradient */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-image: url(nike\ bc\ 2.png);
+      background-repeat: no-repeat;
+      backdrop-filter: blur(5px);
+      background-size: 100% 100%;
+    }
+
+    .login-container {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 20px;
+      padding: 30px 40px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+      color: #fff;
+      width: 90%;
+      max-width: 360px;
+      text-align: center;
+    }
+
+    .login-container h1 {
+      margin-bottom: 20px;
+      font-size: 28px;
+      color: #ffffff;
+    }
+
+    .login-container label {
+      display: block;
+      text-align: left;
+      margin: 10px 0 5px;
+      color: #f0f0f0;
+    }
+
+    .login-container input[type="text"],
+    .login-container input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      font-size: 16px;
+      background-color: rgba(255, 255, 255, 0.9);
+      color: #333;
+    }
+
+    .login-container input::placeholder {
+      color: #888;
+    }
+
+    .login-container button {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 10px;
+      background: #4b7bec; /* Refined blue */
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .login-container button:hover {
+      background: #3867d6;
+    }
+
+    #error-message {
+      color: #ff4b5c;
+      margin-top: 10px;
+      opacity: 0;
+      transition: opacity 0.5s;
+      font-weight: bold;
+    }
+
+    .show {
+      opacity: 1;
+    }
+
+    .toggle-password {
+      cursor: pointer;
+      font-size: 13px;
+      margin-top: -5px;
+      color: #e6e6e6;
+      user-select: none;
+    }
+  </style>
+</head>
+<body>
+  
+
+  <div class="login-container">
+    <h1>Login</h1>
+    <form onsubmit="login(); return false;">
+      <label for="userid">User Name:</label>
+      <input type="text" id="userid" placeholder="Enter username" required />
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" placeholder="Enter password" required />
+      <div class="toggle-password" onclick="togglePassword()">Show/Hide Password</div>
+
+      <button type="submit">Login</button>
+    </form>
+    <div id="error-message">Invalid username or password.</div>
+  </div>
+
+  <script>
+    const validuserid = "admin";
+    const validpassword = "1234";
+
+    function login() {
+      const useridInput = document.getElementById("userid").value;
+      const passwordInput = document.getElementById("password").value;
+      const errormessage = document.getElementById("error-message");
+
+      if (useridInput === validuserid && passwordInput === validpassword) {
+        errormessage.classList.remove("show");
+        window.location.href = "/card/index.html";
+      } else {
+        errormessage.classList.add("show");
+      }
+    }
+
+    function togglePassword() {
+      const passwordField = document.getElementById("password");
+      passwordField.type = passwordField.type === "password" ? "text" : "password";
+    }
+  </script>
+</body>
+</html>
